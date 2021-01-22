@@ -248,8 +248,8 @@ def errors_handler(func):
             from .helpers.utils.managers import paste_text
 
             pastelink = paste_text(ftext)
-            text = "**CatUserbot Error report**\n\n"
-            link = "[here](https://t.me/catuserbot_support)"
+            text = "**UltraMax Error report**\n\n"
+            link = "[here](https://t.me/ultramax_ping)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n\n"
