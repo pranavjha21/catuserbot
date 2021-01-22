@@ -51,11 +51,11 @@ async def amireallyalive(alive):
         return
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     reply_to_id = await reply_id(alive)
-    cat_caption = f"**Catuserbot is Up and Running**\n"
-    cat_caption += f"**  -Telethon version :** `{version.__version__}\n`"
-    cat_caption += f"**  -Catuserbot Version :** `{catversion}`\n"
-    cat_caption += f"**  -Python Version :** `{python_version()}\n`"
-    cat_caption += f"**  -Master:** {mention}\n"
+    cat_caption = f"** Ultra max  is Up and Running**\n"
+    cat_caption += f"**  -Telethon version : "I DONT KNOW MUCH ABOT IT HUH."
+    cat_caption += f"**  -UltraMax Version :"1 this is devloped by @Wanacoins"
+    cat_caption += f"**  -Python Version :** `3 CODED ON GIT HOSTED VIA HEROKU"
+    cat_caption += f"**  -Master:" PRANAV "
     results = await bot.inline_query(tgbotusername, cat_caption)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
