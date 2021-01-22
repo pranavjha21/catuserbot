@@ -20,13 +20,13 @@ async def amireallyalive(alive):
     uptime = await catdef.get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
     if CAT_IMG:
-        cat_caption = f"**{CUSTOM_ALIVE_TEXT}**\n\n"
+        cat_caption = f"**{CUSTOM_ALIVE_TEXT}**"
         cat_caption += f"**{EMOJI} Database :** `{check_sgnirts}`\n"
-        cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-        cat_caption += f"**{EMOJI} Catuserbot Version :** `{catversion}`\n"
-        cat_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
-        cat_caption += f"**{EMOJI} Uptime :** `{uptime}\n`"
-        cat_caption += f"**{EMOJI} Master:** {mention}\n"
+        cat_caption += f"**{EMOJI} Telethon version :" NOPE I DONT KNOW"
+        cat_caption += f"**{EMOJI} Catuserbot Version :" 1 "
+        cat_caption += f"**{EMOJI} Python Version : "WE DONT USE PYTHON" 
+        cat_caption += f"**{EMOJI} Uptime :" NO UPTIME WE ARE ALWAYS DOWN"
+        cat_caption += f"**{EMOJI} Master: PRANAV 
         await alive.client.send_file(
             alive.chat_id, CAT_IMG, caption=cat_caption, reply_to=reply_to_id
         )
@@ -87,7 +87,7 @@ def check_data_base_heal_th():
         output = f"❌ {str(e)}"
         is_database_working = False
     else:
-        output = "Functioning Normally"
+        output = "SOME EROOR I DATABSE IS IN HOSPITAL"
         is_database_working = True
     return is_database_working, output
 
