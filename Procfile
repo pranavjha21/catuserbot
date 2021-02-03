@@ -1,1 +1,1 @@
-userbot: bash .github/clone.s
+userbot: bash .github/clone.sh
