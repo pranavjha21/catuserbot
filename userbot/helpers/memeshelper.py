@@ -1,4 +1,4 @@
-import rando
+import random
 
 GDNOON = [
     "`My wishes will always be with you, Morning wish to make you feel fresh, Afternoon wish to accompany you, Evening wish to refresh you, Night wish to comfort you with sleep, Good Afternoon Dear!`",
