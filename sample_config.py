@@ -22,6 +22,8 @@ class Config(object):
     # For Databases
     DB_URI = os.environ.get("DATABASE_URL", None)
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
+    STRING_SESSION_2 = os.environ.get("STRING_SESSION_2", None)
+    STRING_SESSION_3 = os.environ.get("STRING_SESSION_3", None)
     # string session for running on Heroku
     # some people upload their session files on GitHub or other third party hosting
     # websites, this might prevent the un-authorized use of the
