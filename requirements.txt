@@ -1,4 +1,4 @@
-teletho
+telethon
 setuptools
 wheel
 aiofiles
