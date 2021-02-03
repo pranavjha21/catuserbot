@@ -36,7 +36,7 @@ async def edit_or_reply(
     for i in asciich:
         text = re.sub(rf"\{i}", "", text)
     if aslink:
-        linktext = linktext or "Message was to big so pasted to bin"
+        linktext = linktext or "Message was too big, so pasted to bin."
         try:
             key = (
                 requests.post(
