@@ -3,7 +3,7 @@ from datetime import datetime
 
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd, sudo_cmd
-from .managers import edit_or_reply
+from userbot.managers import edit_or_reply
 
 
 def get_readable_time(seconds: int) -> str:
