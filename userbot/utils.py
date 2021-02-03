@@ -195,7 +195,7 @@ def sudo_cmd(pattern=None, command=None, **args):
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
         del args["allow_sudo"]
-    # error handling condition check
+    # Error handling condition check
     elif "incoming" in args and not args["incoming"]:
         args["outgoing"] = True
     # add blacklist chats, UB should not respond in these chats
@@ -249,8 +249,8 @@ def errors_handler(func):
             from .helpers.utils import _format
 
             pastelink = _format.paste_text(ftext)
-            text = "**CatUserbot Error report**\n\n"
-            link = "[here](https://t.me/catuserbot_support)"
+            text = "**PineApple UserBot Error report**\n\n"
+            link = "[Here](https://telegram.me/PineApple_UB_OnTopic)"
             text += "If you wanna you can report it"
             text += f"- just forward this message {link}.\n"
             text += "Nothing is logged except the fact of error and date\n\n"
