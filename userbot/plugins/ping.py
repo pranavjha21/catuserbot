@@ -1,21 +1,56 @@
 import asyncio
 from datetime import datetime
 
+from userbot import CMD_HELP, Lastupdate
+from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+
+    while count < 4:
+        count += 1
+        if count < 3:
+            remainder, result = divmod(seconds, 60)
+        else:
+            remainder, result = divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+
+    return ping_time
+
+
 
 @bot.on(admin_cmd(pattern="ping$"))
 @bot.on(sudo_cmd(pattern="ping$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
+    ALIVE_NAME = await bot.get_me()
+    if not ALIVE_NAME.username:
+        ALIVE_NAME.username = ALIVE_NAME.id
+    botALIVE_NAME = await tgbot.get_me()
+    TG_BOT_USER_NAME_BF_HER = botALIVE_NAME.username
     start = datetime.now()
-    event = await edit_or_reply(event, "**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    ALIVE_NAME = Config.ALIVE_NAME
-    TG_BOT_USER_NAME_BF_HER = Config.TG_BOT_USER_NAME_BF_HER
-    await event.edit("**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n`➲ {}`.format(ms)\n`➲ {ALIVE_NAME}`\n`➲ {TG_BOT_USER_NAME_BF_HER}`")
+    uptime = get_readable_time((time.time() - Lastupdate))
+    await event.reply(
+        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `{uptime}` \n➲ `@{ALIVE_NAME.username}` \n➲ `@{TG_BOT_USER_NAME_BF_HER}`"
+    )
 
- 
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
 @bot.on(sudo_cmd(pattern=f"fping$", allow_sudo=True))
 async def _(event):
