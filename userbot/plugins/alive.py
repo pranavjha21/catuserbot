@@ -3,12 +3,14 @@ from platform import python_version
 
 from telethon import version
 
-from . import ALIVE_NAME, StartTime, catversion, get_readable_time, mention, reply_id
+from . import StartTime, catversion, get_readable_time, hmention, mention, reply_id
 
-DEFAULTUSER = ALIVE_NAME or "cat"
+# backup
+
+
 PINEAPPLE_IMG = Config.ALIVE_PIC
-CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✮ PINEAPPLE USERBOT IS RUNNING SUCCESSFULLY ✮"
-EMOJI = Config.CUSTOM_ALIVE_EMOJI or "  ✥ "
+CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✮ PINEAPPLE IS RUNNING SUCCESSFULLY ✮"
+EMOJI = Config.CUSTOM_ALIVE_EMOJI or "✧✧, ➥"
 
 
 @bot.on(admin_cmd(outgoing=True, pattern="alive$"))
@@ -19,28 +21,43 @@ async def amireallyalive(alive):
     reply_to_id = await reply_id(alive)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    if PINEAPPLE_IMG:
-        cat_caption = f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-        cat_caption += f"**{EMOJI} Database :** `{check_sgnirts}`\n"
-        cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}\n`"
-        cat_caption += f"**{EMOJI} PineApple Version :** `{catversion}`\n"
-        cat_caption += f"**{EMOJI} Python Version :** `{python_version()}\n`"
-        cat_caption += f"**{EMOJI} Uptime :** `{uptime}\n`"
-        cat_caption += f"**{EMOJI} Master:** {mention}\n"
+    if CAT_IMG:
+        cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
+        cat_caption += f"<b>{EMOJI} Boss : {hmention}</b>\n"
+        cat_caption += f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
+        cat_caption += (
+            f"<b>{EMOJI} Python Version :</b> <code>{python_version()}</code>\n"
+        )
+        cat_caption += (
+            f"<b>{EMOJI} Telethon version :</b> <code>{version.__version__}</code>\n"
+        )
+        cat_caption += (
+            f"<b>{EMOJI} PineApple Version :</b> <code>{catversion}</code>\n"
+        )
+        cat_caption += f"<b>{EMOJI} Database :</b> <code>{check_sgnirts}</code>\n\n"
+        cat_caption += "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a>"
         await alive.client.send_file(
-            alive.chat_id, PINEAPPLE_IMG, caption=cat_caption, reply_to=reply_to_id
+            alive.chat_id,
+            PINEAPPLE_IMG,
+            caption=cat_caption,
+            parse_mode="html",
+            reply_to=reply_to_id,
+            link_preview=False,
+            allow_cache=True,
         )
         await alive.delete()
     else:
         await edit_or_reply(
             alive,
-            f"**{CUSTOM_ALIVE_TEXT}**\n\n"
-            f"**{EMOJI} Database :** `{check_sgnirts}`\n"
-            f"**{EMOJI} Telethon Version :** `{version.__version__}\n`"
-            f"**{EMOJI} PineApple Version :** `{catversion}`\n"
-            f"**{EMOJI} Python Version :** `{python_version()}\n`"
-            f"**{EMOJI} Uptime :** `{uptime}\n`"
-            f"**{EMOJI} Master:** {mention}\n",
+            f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
+            f"<b>{EMOJI} Boss : {hmention}</b>\n"
+            f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
+            f"<b>{EMOJI} Python Version :</b> <code>{python_version()}</code>\n"
+            f"<b>{EMOJI} Telethon version :</b> <code>{version.__version__}</code>\n"
+            f"<b>{EMOJI} PineApple Version :</b> <code>{catversion}</code>\n"
+            f"<b>{EMOJI} Database :</b> <code>{check_sgnirts}</code>\n\n"
+            "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a>",
+            parse_mode="html",
         )
 
 
@@ -52,10 +69,10 @@ async def amireallyalive(alive):
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     reply_to_id = await reply_id(alive)
     cat_caption = f"**PineApple is Up and Running Successfully.**\n"
+    cat_caption += f"**  -Master :** {mention}\n"
+    cat_caption += f"**  -Python Version :** `{python_version()}\n`"
     cat_caption += f"**  -Telethon version :** `{version.__version__}\n`"
     cat_caption += f"**  -PineApple Version :** `{catversion}`\n"
-    cat_caption += f"**  -Python Version :** `{python_version()}\n`"
-    cat_caption += f"**  -Master:** {mention}\n"
     results = await bot.inline_query(tgbotusername, cat_caption)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
@@ -87,18 +104,17 @@ def check_data_base_heal_th():
         output = f"❌ {str(e)}"
         is_database_working = False
     else:
-        output = "Functioning Normally"
+        output = "Functioning"
         is_database_working = True
     return is_database_working, output
 
 
 CMD_HELP.update(
     {
-        "alive": "**Plugin :** `alive`\
-      \n\n  •  **Syntax : **`.alive` \
-      \n  •  **Function : **__status of bot will be showed__\
-      \n\n  •  **Syntax : **`.ialive` \
-      \n  •  **Function : **__inline status of bot will be shown.__\
-      \nSet `ALIVE_PIC` var for media in alive message"
+        "alive": "__**PLUGIN NAME :** Alive__\
+      \n\n📌** CMD ➥** `.alive`\
+      \n**USAGE   ➥  **To see wether your bot is working or not.\
+      \n\n📌** CMD ➥** `.ialive`\
+      \n**USAGE   ➥  **__Status of bot will be showed by inline mode with button__."
     }
 )
