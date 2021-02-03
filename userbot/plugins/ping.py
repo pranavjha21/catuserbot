@@ -1,7 +1,7 @@
 import asyncio
 from datetime import datetime
 
-from userbot import CMD_HELP, Lastupdate
+from userbot import CMD_HELP
 from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
 
 def get_readable_time(seconds: int) -> str:
@@ -46,9 +46,8 @@ async def _(event):
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    uptime = get_readable_time((time.time() - Lastupdate))
     await event.reply(
-        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `{uptime}` \n➲ `@{ALIVE_NAME.username}` \n➲ `@{TG_BOT_USER_NAME_BF_HER}`"
+        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `@{ALIVE_NAME.username}` \n➲ `@{TG_BOT_USER_NAME_BF_HER}`"
     )
 
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
