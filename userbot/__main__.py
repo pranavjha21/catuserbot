@@ -26,7 +26,7 @@ else:
         bot.tgbot = TelegramClient(
             "TG_BOT_TOKEN", api_id=Config.APP_ID, api_hash=Config.API_HASH
         ).start(bot_token=Config.TG_BOT_TOKEN_BF_HER)
-        LOGS.info("Initialisation finished with no errors")
+        LOGS.info("Initialisation finished with no errors.")
         LOGS.info("Starting Userbot")
         bot.loop.run_until_complete(add_bot(Config.TG_BOT_USER_NAME_BF_HER))
         LOGS.info("Startup Completed")
@@ -42,10 +42,10 @@ for name in files:
         if shortname.replace(".py", "") not in Config.NO_LOAD:
             load_module(shortname.replace(".py", ""))
 
-LOGS.info("Yay your userbot is officially working.!!!")
+LOGS.info("Yo!! Your PineApple is now officially working...!!!")
 LOGS.info(
-    "Congratulation, now type .alive to see message if bot is live\
-    \nIf you need assistance, head to https://t.me/catuserbot_support"
+    "Congratulations, now type .alive/.ping to see message if bot is live.\
+    \nIf you need assistance, head to https://telegram.me/PineApple_UB_OnTopic"
 )
 
 
@@ -54,8 +54,8 @@ async def startupmessage():
         if Config.PRIVATE_GROUP_BOT_API_ID:
             await bot.send_message(
                 Config.PRIVATE_GROUP_BOT_API_ID,
-                "**Congratulation, now type .alive to see message if bot is live\
-        \nIf you need assistance, **head to https://t.me/catuserbot_support",
+                "**Congratulations, now type .alive/.ping to see message if bot is live.\
+        \nIf you need assistance, **head to https://telegram.me/PineApple_UB_OnTopic",
                 link_preview=False,
             )
     except Exception:
