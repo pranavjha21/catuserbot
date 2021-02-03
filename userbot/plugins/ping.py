@@ -13,7 +13,7 @@ async def _(event):
     ms = (end - start).microseconds / 1000
     ALIVE_NAME = Config.ALIVE_NAME
     TG_BOT_USER_NAME_BF_HER = Config.TG_BOT_USER_NAME_BF_HER
-    await event.edit("**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n`➲ {}`".format(ms)\n`➲ {ALIVE_NAME}`\n`➲ {TG_BOT_USER_NAME_BF_HER}`)
+    await event.edit("**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n`➲ {}`.format(ms)\n`➲ {ALIVE_NAME}`\n`➲ {TG_BOT_USER_NAME_BF_HER}`")
 
  
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
