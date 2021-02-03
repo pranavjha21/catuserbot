@@ -5,7 +5,7 @@ import urllib.request
 import zipfile
 from random import choice
 
-import PIL.ImageOps
+import PIL.ImageOp
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import Channel, PollAnswer
