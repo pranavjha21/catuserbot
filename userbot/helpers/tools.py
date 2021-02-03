@@ -16,4 +16,4 @@ def media_type(message):
     elif message and message.document:
         return "Document"
     else:
-        return None.
+        return None
