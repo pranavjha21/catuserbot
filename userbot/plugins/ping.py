@@ -47,7 +47,7 @@ async def _(event):
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     await event.reply(
-        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `{ALIVE_NAME}` \n➲ `{TG_BOT_USER_NAME_BF_HER}`"
+        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n✥ `{ms}` \n✥ `{ALIVE_NAME}` \n✥ `{TG_BOT_USER_NAME_BF_HER}`"
     )
 
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
