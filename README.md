@@ -6,19 +6,19 @@ Get APP ID and API HASH from [HERE](https://my.telegram.org) and BOT TOKEN from 
 
 [![Get string session](https://repl.it/badge/github/madboy482/madboy482)](https://generatestring.madboy482.repl.run/)
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/madboy482/UserBot.git)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/madboy482/PineApple.git)
 <p align="center">
-  <a href="https://github.com/madboy482/UserBot/fork">
-    <img src="https://img.shields.io/github/forks/madboy482/UserBot?label=Fork&style=social">
+  <a href="https://github.com/madboy482/PineApple/fork">
+    <img src="https://img.shields.io/github/forks/madboy482/PineApple?label=Fork&style=social">
     
   </a>
-  <a href="https://github.com/madboy482/UserBot">
-    <img src="https://img.shields.io/github/stars/madboy482/UserBot?style=social">
+  <a href="https://github.com/madboy482/PineApple">
+    <img src="https://img.shields.io/github/stars/madboy482/PineApple?style=social">
   </a>
 </p>
 
 
-[![UserBot Logo](https://telegra.ph/file/83066714176baef5bec68.png)](https://heroku.com/deploy?template=https://github.com/madboy482/UserBot)
+[![UserBot Logo](https://telegra.ph/file/83066714176baef5bec68.png)](https://heroku.com/deploy?template=https://github.com/madboy482/PineApple)
 
 
 ### Join [Here](https://telegram.me/PineApple_UB) for updates and tuts; and [Here](https://telegram.me/PineApple_UB_OnTopic) for discussion and bugs.
@@ -36,7 +36,7 @@ from heroku_config import Var
 
 class Development(Var):
   APP_ID = 6
-  API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
+  API_HASH = "7d6cb387d076f20e2362c3c0bdb6a182"
 ```
 
 ### UniBorg Configuration
