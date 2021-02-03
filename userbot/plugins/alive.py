@@ -12,7 +12,7 @@ PINEAPPLE_IMG = Config.ALIVE_PIC
 CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✮ PINEAPPLE IS RUNNING SUCCESSFULLY ✮"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "✧✧, ➥"
 
-Cat_Img
+PINEAPPLE_IMG
 @bot.on(admin_cmd(outgoing=True, pattern="alive$"))
 @bot.on(sudo_cmd(pattern="alive$", allow_sudo=True))
 async def amireallyalive(alive):
