@@ -1,7 +1,7 @@
 version = 1
 
 [[analyzers]]
-name = "pytho"
+name = "python"
 enabled = true
 
   [analyzers.meta]
