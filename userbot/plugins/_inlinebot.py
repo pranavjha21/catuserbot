@@ -11,7 +11,11 @@ from . import CMD_LIST, catalive
 from ..Config import Config
 
 PMPERMIT_PIC = Config.PMPERMIT_PIC
-CAT_IMG = Config.ALIVE_PIC or None
+if PMPERMIT_PIC is None:
+    WARN_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
+else:
+    WARN_PIC = PMPERMIT_PIC
+PINEAPPLE_IMG = Config.ALIVE_PIC or None
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
@@ -30,23 +34,23 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
                 )
             ]
-            if CAT_IMG and CAT_IMG.endswith((".jpg", ".png")):
+            if PINEAPPLE_IMG and PINEAPPLE_IMG.endswith((".jpg", ".png",)):
                 result = builder.photo(
-                    CAT_IMG,
-                    # title="Alive cat",
+                    PINEAPPLE_IMG,
+                    # title="Alive PineApple",
                     text=query,
                     buttons=buttons,
                 )
-            elif CAT_IMG:
+            elif PINEAPPLE_IMG:
                 result = builder.document(
-                    CAT_IMG,
-                    title="Alive cat",
+                    PINEAPPLE_IMG,
+                    title="Alive PineApple",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="Alive cat",
+                    title="Alive PineApple",
                     text=query,
                     buttons=buttons,
                 )
