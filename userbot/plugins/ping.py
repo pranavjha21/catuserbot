@@ -8,12 +8,15 @@ async def _(event):
     if event.fwd_from:
         return
     start = datetime.now()
-    event = await edit_or_reply(event, "Pong!")
+    event = await edit_or_reply(event, "**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await event.edit("Pong!\n`{}`".format(ms))
+    ALIVE_NAME = Config.ALIVE_NAME
+    TG_BOT_USER_NAME_BF_HER = Config.TG_BOT_USER_NAME_BF_HER
+    
+    await event.edit("**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n`➲ {}`".format(ms)\n`➲ {ALIVE_NAME}`\n`➲ {TG_BOT_USER_NAME_BF_HER}`)
 
-
+ 
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
 @bot.on(sudo_cmd(pattern=f"fping$", allow_sudo=True))
 async def _(event):
@@ -22,7 +25,7 @@ async def _(event):
     start = datetime.now()
     animation_interval = 0.2
     animation_ttl = range(26)
-    event = await edit_or_reply(event, "ping....")
+    event = await edit_or_reply(event, "Ping....")
     animation_chars = [
         "⬛⬛⬛⬛⬛⬛⬛⬛⬛",
         "⬛⬛⬛⬛⬛⬛⬛⬛⬛ \n⬛‎📶‎📶‎📶‎📶‎📶‎📶‎📶⬛",
