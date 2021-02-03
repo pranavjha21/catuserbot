@@ -3,7 +3,7 @@ import functools
 import shlex
 from typing import Tuple
 
-from telethon import functions, types.
+from telethon import functions, types
 
 
 # executing of terminal commands
