@@ -17,7 +17,7 @@ class Config(object):
     AUTONAME = os.environ.get("AUTONAME", None)
     # Get this value from my.telegram.org! Please do not steal
     APP_ID = int(os.environ.get("APP_ID", 6))
-    API_HASH = os.environ.get("API_HASH", "eb06d4abfb49dc3eeb1aeb98ae0f581e")
+    API_HASH = os.environ.get("API_HASH", "7d6cb387d076f20e2362c3c0bdb6a182")
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     # For Databases
     DB_URI = os.environ.get("DATABASE_URL", None)
@@ -64,7 +64,7 @@ class Config(object):
     TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
     NO_LOG_P_M_S = bool(os.environ.get("NO_LOG_P_M_S", True))
     THUMB_IMAGE = os.environ.get(
-        "THUMB_IMAGE", "https://telegra.ph/file/ca95524e4734b0d5461b5.jpg"
+        "THUMB_IMAGE", "https://telegra.ph/file/628f1f0e64faef5f201de.png"
     )
     # Genius lyrics get this value from https://genius.com/developers both has
     # same values
@@ -196,7 +196,7 @@ class Config(object):
     TZ_NUMBER = int(os.environ.get("TZ_NUMBER", 1))
     #  for updater plugin
     UPSTREAM_REPO_URL = os.environ.get(
-        "UPSTREAM_REPO_URL", "https://github.com/sandy1709/catuserbot.git"
+        "UPSTREAM_REPO_URL", "https://github.com/madboy482/PineApple.git"
     )
     UPSTREAM_REPO_BRANCH = os.environ.get("UPSTREAM_REPO_BRANCH", "master")
     # can get from https://coffeehouse.intellivoid.net/
