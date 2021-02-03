@@ -5,7 +5,7 @@ import urllib.request
 import zipfile
 from random import choice
 
-import PIL.ImageOp
+import PIL.ImageOps
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import Channel, PollAnswer
@@ -73,9 +73,9 @@ async def yt_search(cat):
                 break
         if video_link:
             return video_link[0]
-        return "Couldnt fetch results"
+        return "Couldn't fetch results."
     except:
-        return "Couldnt fetch results"
+        return "Couldn't fetch results."
 
 
 async def sanga_seperator(sanga_list):
