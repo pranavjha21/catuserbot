@@ -23,19 +23,49 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
-        o = await all_pro_s(Config, client1, client2, client3)
-        builder = event.builder
-        result = None
-        query = event.text
-        hmm = re.compile("secret (.*) (.*)")
-        match = re.findall(hmm, query)
-        if query.startswith("**PineApple") and event.query.user_id == bot.uid:
-            buttons = [
-                (
-                    custom.Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/madboy482/PineApple"),
-                )
-            ]
+    o = await all_pro_s(Config, client1, client2, client3)
+    builder = event.builder
+    result = None
+    query = event.text
+    if event.query.user_id in o and query.startswith("**PineApple"):
+        rev_text = query[::-1]
+        buttons = paginate_help(0, CMD_HELP, "helpme")
+        result = builder.article(
+            "© Userbot Help",
+            text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
+            buttons=buttons,
+            link_preview=False,
+        )
+        await event.answer([result])
+    elif event.query.user_id in o and query == "stats":
+        result = builder.article(
+            title="Stats",
+            text=f"**Showing Stats For {DEFAULTUSER}'s PineApple** \nNote --> Only Owner Can Check This \n(C) @PineApple_UB",
+            buttons=[
+                [custom.Button.inline("Show Stats ?", data="terminator")],
+                [Button.url("Repo 🇮🇳", "https://github.com/madboy482/PineApple")],
+                [Button.url("Join Channel ❤️", "t.me/PineApple_UB")],
+            ],
+        )
+        await event.answer([result])
+    elif event.query.user_id in o and query.startswith("**Hello"):
+        result = builder.photo(
+            file=WARN_PIC,
+            text=query,
+            buttons=[
+                [custom.Button.inline("Spamming", data="dontspamnigga")],
+                [
+                    custom.Button.inline(
+                        "Casual Talk",
+                        data="whattalk",
+                    )
+                ],
+                [custom.Button.inline("Requesting", data="askme")],
+            ],
+        )
+        await event.answer([result])
+
+
             if PINEAPPLE_IMG and PINEAPPLE_IMG.endswith((".jpg", ".png",)):
                 result = builder.photo(
                     PINEAPPLE_IMG,
@@ -56,16 +86,6 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     text=query,
                     buttons=buttons,
                 )
-            await event.answer([result] if result else None)
-        elif event.query.user_id == bot.uid and query.startswith("Userbot"):
-            rev_text = query[::-1]
-            buttons = paginate_help(0, CMD_LIST, "helpme")
-            result = builder.article(
-                "© Userbot Help",
-                text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
-                buttons=buttons,
-                link_preview=False,
-            )
             await event.answer([result] if result else None)
         elif event.query.user_id == bot.uid and query.startswith("Inline buttons"):
             markdown_note = query[14:]
@@ -118,12 +138,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        sandy = f"@{u.username}"
+                        madboy = f"@{u.username}"
                     else:
-                        sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                        madboy = f"[{u.first_name}](tg://user?id={u.id})"
                 except ValueError:
                     # ValueError: Could not find the input entity
-                    sandy = f"[user](tg://user?id={u})"
+                    madboy = f"[user](tg://user?id={u})"
             except ValueError:
                 # if u is username
                 try:
@@ -131,9 +151,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 except ValueError:
                     return
                 if u.username:
-                    sandy = f"@{u.username}"
+                    madboy = f"@{u.username}"
                 else:
-                    sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                    madboy = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except:
                 return
@@ -141,11 +161,11 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             newsecret = {str(timestamp): {"userid": u, "text": txct}}
 
             buttons = [
-                custom.Button.inline("show message 🔐", data=f"secret_{timestamp}")
+                custom.Button.inline("Show Message 🔐", data=f"secret_{timestamp}")
             ]
             result = builder.article(
                 title="secret message",
-                text=f"🔒 A whisper message to {sandy}, Only he/she can open it.",
+                text=f"🔒 A whisper message is sent to {madboy}, Only he/she can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -167,7 +187,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help"
+            reply_pop_up_alert = "Please get your own PineApple Bot, and don't use mine! Join @PineApple_UB for help."
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -184,7 +204,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own PineApple Bot, and don't use mine! Join @PineApple_UB for help. "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
@@ -200,11 +220,11 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     encrypted_tcxt = message["text"]
                     reply_pop_up_alert = encrypted_tcxt
                 else:
-                    reply_pop_up_alert = "why were you looking at this shit go away and do your own work, idiot"
+                    reply_pop_up_alert = "Why were you looking at this shit?? Go away, and do your own work, Idiot!!"
             except KeyError:
-                reply_pop_up_alert = "This message no longer exists in bot server"
+                reply_pop_up_alert = "This message no longer exists in bot server!!"
         else:
-            reply_pop_up_alert = "This message no longer exists "
+            reply_pop_up_alert = "This message no longer exists!! "
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -227,7 +247,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = help_string
             reply_pop_up_alert += (
-                "Use .unload {} to remove this plugin ©catuserbot".format(plugin_name)
+                "Use .unload {} to remove this plugin ©PineApple".format(plugin_name)
             )
             try:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -243,7 +263,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         caption=plugin_name,
                     )
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own PineApple Bot, and don't use mine! Join @PineApple_UB for help. "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
@@ -251,7 +271,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         if event.query.user_id == bot.uid:
             await event.edit("menu closed")
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own PineApple Bot, and don't use mine! Join @PineApple_UB for help. "
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats")))
