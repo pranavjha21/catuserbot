@@ -1,3 +1,3 @@
 CheckUserBotWorking:
   script:
-    - echo "othing"
+    - echo "Nothing"
