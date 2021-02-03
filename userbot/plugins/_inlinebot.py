@@ -9,8 +9,9 @@ from telethon import Button, custom, events
 
 from . import CMD_LIST, catalive
 from ..Config import Config
+from userbot._init_.py import client2 as client1, client3 as client2, bot as client3
 
-PMPERMIT_PIC = Config.PMPERMIT_PIC
+PMPERMIT_PIC = Config.PMPERMIT_PIC or None
 if PMPERMIT_PIC is None:
     WARN_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
@@ -22,16 +23,17 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
     @tgbot.on(events.InlineQuery)
     async def inline_handler(event):
+        o = await all_pro_s(Config, client1, client2, client3)
         builder = event.builder
         result = None
         query = event.text
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**Catuserbot") and event.query.user_id == bot.uid:
+        if query.startswith("**PineApple") and event.query.user_id == bot.uid:
             buttons = [
                 (
                     custom.Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
+                    Button.url("Repo", "https://github.com/madboy482/PineApple"),
                 )
             ]
             if PINEAPPLE_IMG and PINEAPPLE_IMG.endswith((".jpg", ".png",)):
