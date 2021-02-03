@@ -15,7 +15,7 @@ async def media_to_pic(event, reply):
     if mediatype not in ["Photo", "Round Video", "Gif", "Sticker", "Video"]:
         await edit_delete(
             event,
-            "`In the replied message. I cant extract any image to procced further reply to proper media`",
+            "`In the replied message, I can't extract any image. To procced further, reply to proper media.`",
         )
         return None
     catmedia = await reply.download_media(file="./temp")
@@ -35,7 +35,7 @@ async def media_to_pic(event, reply):
         await take_screen_shot(catmedia, 0, catfile)
         if not os.path.exists(catfile):
             await edit_delete(
-                catevent, f"`Sorry. I can't extract a image from this {mediatype}`"
+                catevent, f"`Sorry, I can't extract an image from this {mediatype}.`"
             )
             return None
     else:
