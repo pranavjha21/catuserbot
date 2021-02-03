@@ -36,19 +36,7 @@ def load_module(shortname):
         from .helpers.tools import media_type
         from .helpers.utils import _cattools, _catutils, _format, install_pip, reply_id
         from .managers import edit_delete, edit_or_reply
-        
-        async def edit_or_reply(event, text):
-    if event.sender_id in Config.SUDO_USERS:
-        reply_to = await event.get_reply_message()
-        if reply_to:
-            return await reply_to.reply(text)
-        return await event.reply(text)
-    return await event.edit(text)
 
-        Lastupdate = time.time()
-        sedprint = logging.getLogger("WARNING")
-        from ..Config import Config
-        
         path = Path(f"userbot/plugins/{shortname}.py")
         name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
