@@ -2,7 +2,9 @@ import asyncio
 from datetime import datetime
 
 from userbot import CMD_HELP
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+from userbot.utils import admin_cmd, sudo_cmd
+from .managers import edit_or_reply
+
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -43,11 +45,15 @@ async def _(event):
         ALIVE_NAME.username = ALIVE_NAME.id
     botALIVE_NAME = await tgbot.get_me()
     TG_BOT_USER_NAME_BF_HER = botALIVE_NAME.username
+    Lastupdate = time.time()
+    sedprint = logging.getLogger("WARNING")
+    from ..Config import Config
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds / 1000
+    uptime = get_readable_time((time.time() - Lastupdate))
     await event.reply(
-        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `@{ALIVE_NAME.username}` \n➲ `@{TG_BOT_USER_NAME_BF_HER}`"
+        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `{uptime}` \n➲ `@{ALIVE_NAME.username}` \n➲ `@{TG_BOT_USER_NAME_BF_HER}`"
     )
 
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
