@@ -1,5 +1,5 @@
 states = [
-    "Andaman and Nicobar Islands",.
+    "Andaman and Nicobar Islands",
     "Andhra Pradesh",
     "Arunachal Pradesh",
     "Assam",
