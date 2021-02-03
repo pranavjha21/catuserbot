@@ -1,5 +1,5 @@
 import datetime
-import re.
+import re
 
 import requests
 from telethon.tl.tlobject import TLObject
