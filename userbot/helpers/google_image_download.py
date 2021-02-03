@@ -2,7 +2,7 @@
 # In[ ]:
 #  coding: utf-8
 
-###### Searching ad Downloading Google Images to the local disk ######
+###### Searching and Downloading Google Images to the local disk ######
 
 import argparse
 
