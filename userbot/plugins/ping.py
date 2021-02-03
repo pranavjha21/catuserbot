@@ -4,6 +4,7 @@ from datetime import datetime
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd, sudo_cmd
 from userbot.managers import edit_or_reply
+from ..Config import Config
 
 
 def get_readable_time(seconds: int) -> str:
@@ -40,20 +41,13 @@ def get_readable_time(seconds: int) -> str:
 async def _(event):
     if event.fwd_from:
         return
-    ALIVE_NAME = await bot.get_me()
-    if not ALIVE_NAME.username:
-        ALIVE_NAME.username = ALIVE_NAME.id
-    botALIVE_NAME = await tgbot.get_me()
-    TG_BOT_USER_NAME_BF_HER = botALIVE_NAME.username
-    Lastupdate = time.time()
-    sedprint = logging.getLogger("WARNING")
-    from ..Config import Config
+    ALIVE_NAME = Config.ALIVE_NAME
+    TG_BOT_USER_NAME_BF_HER = Config.TG_BOT_USER_NAME_BF_HER
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    uptime = get_readable_time((time.time() - Lastupdate))
     await event.reply(
-        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `{uptime}` \n➲ `@{ALIVE_NAME.username}` \n➲ `@{TG_BOT_USER_NAME_BF_HER}`"
+        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n➲ `{ms}` \n➲ `{ALIVE_NAME}` \n➲ `{TG_BOT_USER_NAME_BF_HER}`"
     )
 
 @bot.on(admin_cmd(pattern=f"fping$", outgoing=True))
