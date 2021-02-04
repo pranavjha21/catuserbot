@@ -76,7 +76,7 @@ async def amireallyalive(alive):
             "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a> | <a href = https://telegram.me/PineApple_UB_Spam><b>Spam</b></a>",
             parse_mode="html",
         )
-            on = await borg.send_file(yes.chat_id, file=file1,caption=pm_caption)
+            on = await borg.send_file(yes.chat_id, file=file1,caption=cat_caption)
     
             await asyncio.sleep(edit_time)
             ok = await bot.edit_message(yes.chat_id, on, file=file1) 
