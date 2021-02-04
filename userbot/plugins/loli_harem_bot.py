@@ -1,4 +1,4 @@
-"""LETS DIE TOGETHER SHALL WE?"""
+"""Eeeh, Beta Ji, Waifu Protecc krenge, Hmmm!!!!"""
 import asyncio
 import os
 from datetime import datetime
