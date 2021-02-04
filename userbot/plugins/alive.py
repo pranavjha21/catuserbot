@@ -88,8 +88,8 @@ async def amireallyalive(alive):
             link_preview=False,
             allow_cache=True,
         )
-            await alive.delete()
-            on = await borg.send_file(yes.chat_id, file=file1,caption=cat_caption)
+           await alive.delete()
+            on = await bot.send_file(yes.chat_id, file=file1,caption=cat_caption)
     
             await asyncio.sleep(edit_time)
             ok = await bot.edit_message(yes.chat_id, on, file=file1) 
