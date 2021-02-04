@@ -55,7 +55,7 @@ async def amireallyalive(alive):
     cat_caption += f"**  -Telethon version : "I DONT KNOW MUCH ABOT IT HUH."
     cat_caption += f"**  -UltraMax Version :"1 this is devloped by @Wanacoins"
     cat_caption += f"**  -Python Version :** `3 CODED ON GIT HOSTED VIA HEROKU"
-    cat_caption += f"**  -Master:" PRANAV "
+    cat_caption += f"**  -Master:" PRANAV Jha"
     results = await bot.inline_query(tgbotusername, cat_caption)  # pylint:disable=E0602
     await results[0].click(alive.chat_id, reply_to=reply_to_id, hide_via=True)
     await alive.delete()
