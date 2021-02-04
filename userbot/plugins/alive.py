@@ -65,7 +65,7 @@ async def amireallyalive(alive):
         )
         await alive.delete()
     else:
-        await edit_or_reply(
+        await reply(
             alive,
             f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
             f"<b>{EMOJI} Boss : {DEFAULT_USER}</b>\n"
@@ -76,11 +76,43 @@ async def amireallyalive(alive):
             f"<b>{EMOJI} Database :</b> <code>{check_sgnirts}</code>\n\n"
             "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a> | <a href = https://telegram.me/PineApple_UB_Spam><b>Spam</b></a>",
             parse_mode="html",
+        )
             on = await borg.send_file(yes.chat_id, file=file1,caption=pm_caption)
     
+            await asyncio.sleep(edit_time)
+            ok = await bot.edit_message(yes.chat_id, on, file=file1) 
+
+            await asyncio.sleep(edit_time)
+            ok2 = await bot.edit_message(yes.chat_id, ok, file=file2)
+
+            await asyncio.sleep(edit_time)
+            ok3 = await bot.edit_message(yes.chat_id, ok2, file=file3)
     
+            await asyncio.sleep(edit_time)
+            ok4 = await bot.edit_message(yes.chat_id, ok3, file=file4)
+    
+            await asyncio.sleep(edit_time)
+            ok5 = await bot.edit_message(yes.chat_id, ok4, file=file5)
+    
+            await asyncio.sleep(edit_time)
+            ok6 = await bot.edit_message(yes.chat_id, ok5, file=file6)
+    
+            await asyncio.sleep(edit_time)
+            ok7 = await bot.edit_message(yes.chat_id, ok6, file=file7)
 
-
+            await asyncio.sleep(edit_time)
+            ok8 = await bot.edit_message(yes.chat_id, ok7, file=file8)
+    
+            await asyncio.sleep(edit_time)
+            ok9 = await bot.edit_message(yes.chat_id, ok8, file=file4)
+    
+            await asyncio.sleep(edit_time)
+            ok10 = await bot.edit_message(yes.chat_id, ok9, file=file1)
+    
+            await asyncio.sleep(edit_time)
+            ok11 = await bot.edit_message(yes.chat_id, ok10, file=file5)
+            
+            
 @bot.on(admin_cmd(outgoing=True, pattern="ialive$"))
 @bot.on(sudo_cmd(pattern="ialive$", allow_sudo=True))
 async def amireallyalive(alive):
