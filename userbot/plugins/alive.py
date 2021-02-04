@@ -66,16 +66,29 @@ async def amireallyalive(alive):
     else:
         await reply(
             alive,
-            f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
-            f"<b>{EMOJI} Boss : {DEFAULT_USER}</b>\n"
-            f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
+        cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
+        cat_caption += f"<b>{EMOJI} Boss : {DEFAULT_USER}</b>\n"
+        cat_caption += f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
+        cat_caption += (
             f"<b>{EMOJI} Python Version :</b> <code>{python_version()}</code>\n"
-            f"<b>{EMOJI} Telethon version :</b> <code>{version.__version__}</code>\n"
-            f"<b>{EMOJI} PineApple Version :</b> <code>{catversion}</code>\n"
-            f"<b>{EMOJI} Database :</b> <code>{check_sgnirts}</code>\n\n"
-            "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a> | <a href = https://telegram.me/PineApple_UB_Spam><b>Spam</b></a>",
-            parse_mode="html",
         )
+        cat_caption += (
+            f"<b>{EMOJI} Telethon version :</b> <code>{version.__version__}</code>\n"
+        )
+        cat_caption += (
+            f"<b>{EMOJI} PineApple Version :</b> <code>{catversion}</code>\n"
+        )
+        cat_caption += f"<b>{EMOJI} Database :</b> <code>{check_sgnirts}</code>\n\n"
+        cat_caption += "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a> | <a href = https://telegram.me/PineApple_UB_Spam><b>Spam</b></a>"
+        await alive.client.send_file(
+            alive.chat_id,
+            caption=cat_caption,
+            parse_mode="html",
+            reply_to=reply_to_id,
+            link_preview=False,
+            allow_cache=True,
+        )
+            await alive.delete()
             on = await borg.send_file(yes.chat_id, file=file1,caption=cat_caption)
     
             await asyncio.sleep(edit_time)
