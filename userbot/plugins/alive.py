@@ -1,5 +1,7 @@
 import time
 from platform import python_version
+import os
+import requests
 
 from telethon import version
 
@@ -7,10 +9,69 @@ from . import StartTime, catversion, get_readable_time, hmention, mention, reply
 
 # backup
 
-
+ALIVE_NAME = Config.ALIVE_NAME
 PINEAPPLE_IMG = Config.ALIVE_PIC
 CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✧✧ PINEAPPLE IS RUNNING SUCCESSFULLY ✧✧"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "➥"
+DEFAULT_USER = str(ALIVE_NAME) if ALIVE_NAME else "PineApple"
+
+global ghanti
+ghanti = bot.uid
+edit_time = 9
+""" =======================CONSTANTS====================== """
+file1 = "https://telegra.ph/file/a0f435a5975c30466e038.jpg"
+file2 = "https://telegra.ph/file/f8c3fefef25b1c99ce1d9.jpg"
+file3 = "https://telegra.ph/file/ca1df6456be952d0d5f23.jpg"
+file4 = "https://telegra.ph/file/c98058f2c192e8ce8c5b6.jpg"
+file5 = "https://telegra.ph/file/c866dda4baeacb33752c9.jpg"
+file6 = "https://telegra.ph/file/ca71d325120480ca8871f.jpg"
+file7 = "https://telegra.ph/file/886a2606a353f59e5a30c.jpg"
+file8 = "https://telegra.ph/file/decf1583b93e275041621.jpg"
+""" =======================CONSTANTS====================== """
+
+
+@bot.on(admin_cmd(pattern=r"alive"))
+@bot.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
+
+async def hmm(yes):
+    chat = await yes.get_chat()
+    global ghanti
+    ghanti = borg.uid
+    await yes.delete()
+    uptime = await dcdef.get_readable_time((time.time() - Lastupdate))
+    pm_caption = "**PineApple is Up and Running Successfully.**\n\n"
+    pm_caption += "**Yes Master, Am Alive And Systems Are Working Perfectly As It Should Be...**\n\n"
+    pm_caption += "✘ About My System ✘\n\n"
+    pm_caption += f"➾ **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ** ☞ {version.__version__}\n"
+    pm_caption += "➾ **ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ** ☞ [ᴊᴏɪɴ](https://t.me/Dark_cobra_support)\n"
+    pm_caption += "➾ **ʟɪᴄᴇɴꜱᴇ**  ☞ [𝚃𝙴𝙰𝙼 𝙲𝙾𝙱𝚁𝙰](https://github.com/DARK-COBRA)\n"
+    pm_caption += "➾ **ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ** ☞ [𝙳𝙰𝚁𝙺-𝙲𝙾𝙱𝚁𝙰](https://github.com/DARK-COBRA/DARKCOBRA)\n\n"
+    pm_caption += f"➾ **ᴜᴘᴛɪᴍᴇ** ☞ {uptime}\n\n"
+    pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
+    on = await borg.send_file(yes.chat_id, file=file1,caption=pm_caption)
+
+    await asyncio.sleep(edit_time)
+    ok = await borg.edit_message(yes.chat_id, on, file=file2) 
+
+    await asyncio.sleep(edit_time)
+    ok2 = await borg.edit_message(yes.chat_id, ok, file=file3)
+
+    await asyncio.sleep(edit_time)
+    ok3 = await borg.edit_message(yes.chat_id, ok2, file=file1)
+    
+    await asyncio.sleep(edit_time)
+    ok4 = await borg.edit_message(yes.chat_id, ok3, file=file3)
+    
+    await asyncio.sleep(edit_time)
+    ok5 = await borg.edit_message(yes.chat_id, ok4, file=file2)
+    
+    await asyncio.sleep(edit_time)
+    ok6 = await borg.edit_message(yes.chat_id, ok5, file=file1)
+    
+    await asyncio.sleep(edit_time)
+    ok7 = await borg.edit_message(yes.chat_id, ok6, file=file4)
+
+    
 
 PINEAPPLE_IMG
 @bot.on(admin_cmd(outgoing=True, pattern="alive$"))
@@ -23,7 +84,7 @@ async def amireallyalive(alive):
     _, check_sgnirts = check_data_base_heal_th()
     if PINEAPPLE_IMG:
         cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
-        cat_caption += f"<b>{EMOJI} Boss : {hmention}</b>\n"
+        cat_caption += f"<b>{EMOJI} Boss : {DEFAULT_USER}</b>\n"
         cat_caption += f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
         cat_caption += (
             f"<b>{EMOJI} Python Version :</b> <code>{python_version()}</code>\n"
@@ -50,7 +111,7 @@ async def amireallyalive(alive):
         await edit_or_reply(
             alive,
             f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
-            f"<b>{EMOJI} Boss : {hmention}</b>\n"
+            f"<b>{EMOJI} Boss : {DEFAULT_USER}</b>\n"
             f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
             f"<b>{EMOJI} Python Version :</b> <code>{python_version()}</code>\n"
             f"<b>{EMOJI} Telethon version :</b> <code>{version.__version__}</code>\n"
@@ -69,7 +130,7 @@ async def amireallyalive(alive):
     tgbotusername = Config.TG_BOT_USER_NAME_BF_HER
     reply_to_id = await reply_id(alive)
     cat_caption = f"**PineApple is Up and Running Successfully.**\n"
-    cat_caption += f"**  -Master :** {mention}\n"
+    cat_caption += f"**  -Boss :** {DEFAULT_USER}\n"
     cat_caption += f"**  -Python Version :** `{python_version()}\n`"
     cat_caption += f"**  -Telethon version :** `{version.__version__}\n`"
     cat_caption += f"**  -PineApple Version :** `{catversion}`\n"
