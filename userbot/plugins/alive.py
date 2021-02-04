@@ -14,6 +14,7 @@ PINEAPPLE_IMG = Config.ALIVE_PIC
 CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✧✧ PINEAPPLE IS RUNNING SUCCESSFULLY ✧✧"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "➥"
 DEFAULT_USER = str(ALIVE_NAME) if ALIVE_NAME else "PineApple"
+on = await bot.send_file(yes.chat_id, file=file1)
 
 global ghanti
 ghanti = bot.uid
@@ -28,50 +29,6 @@ file6 = "https://telegra.ph/file/ca71d325120480ca8871f.jpg"
 file7 = "https://telegra.ph/file/886a2606a353f59e5a30c.jpg"
 file8 = "https://telegra.ph/file/decf1583b93e275041621.jpg"
 """ =======================CONSTANTS====================== """
-
-
-@bot.on(admin_cmd(pattern=r"alive"))
-@bot.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
-
-async def hmm(yes):
-    chat = await yes.get_chat()
-    global ghanti
-    ghanti = borg.uid
-    await yes.delete()
-    uptime = await dcdef.get_readable_time((time.time() - Lastupdate))
-    pm_caption = "**PineApple is Up and Running Successfully.**\n\n"
-    pm_caption += "**Yes Master, Am Alive And Systems Are Working Perfectly As It Should Be...**\n\n"
-    pm_caption += "✘ About My System ✘\n\n"
-    pm_caption += f"➾ **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ** ☞ {version.__version__}\n"
-    pm_caption += "➾ **ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ** ☞ [ᴊᴏɪɴ](https://t.me/Dark_cobra_support)\n"
-    pm_caption += "➾ **ʟɪᴄᴇɴꜱᴇ**  ☞ [𝚃𝙴𝙰𝙼 𝙲𝙾𝙱𝚁𝙰](https://github.com/DARK-COBRA)\n"
-    pm_caption += "➾ **ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ** ☞ [𝙳𝙰𝚁𝙺-𝙲𝙾𝙱𝚁𝙰](https://github.com/DARK-COBRA/DARKCOBRA)\n\n"
-    pm_caption += f"➾ **ᴜᴘᴛɪᴍᴇ** ☞ {uptime}\n\n"
-    pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
-    on = await borg.send_file(yes.chat_id, file=file1,caption=pm_caption)
-
-    await asyncio.sleep(edit_time)
-    ok = await borg.edit_message(yes.chat_id, on, file=file2) 
-
-    await asyncio.sleep(edit_time)
-    ok2 = await borg.edit_message(yes.chat_id, ok, file=file3)
-
-    await asyncio.sleep(edit_time)
-    ok3 = await borg.edit_message(yes.chat_id, ok2, file=file1)
-    
-    await asyncio.sleep(edit_time)
-    ok4 = await borg.edit_message(yes.chat_id, ok3, file=file3)
-    
-    await asyncio.sleep(edit_time)
-    ok5 = await borg.edit_message(yes.chat_id, ok4, file=file2)
-    
-    await asyncio.sleep(edit_time)
-    ok6 = await borg.edit_message(yes.chat_id, ok5, file=file1)
-    
-    await asyncio.sleep(edit_time)
-    ok7 = await borg.edit_message(yes.chat_id, ok6, file=file4)
-
-    
 
 PINEAPPLE_IMG
 @bot.on(admin_cmd(outgoing=True, pattern="alive$"))
@@ -119,7 +76,9 @@ async def amireallyalive(alive):
             f"<b>{EMOJI} Database :</b> <code>{check_sgnirts}</code>\n\n"
             "    <a href = https://github.com/madboy482/PineApple><b>PineApple</b></a> | <a href = https://telegram.me/PineApple_UB><b>Updates</b></a> | <a href = https://telegram.me/PineApple_UB_OnTopic><b>Support</b></a> | <a href = https://telegram.me/PineApple_UB_Spam><b>Spam</b></a>",
             parse_mode="html",
-        )
+            on = await borg.send_file(yes.chat_id, file=file1,caption=pm_caption)
+    
+    
 
 
 @bot.on(admin_cmd(outgoing=True, pattern="ialive$"))
