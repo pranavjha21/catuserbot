@@ -9,7 +9,7 @@ from telethon import Button, custom, events
 
 from . import CMD_LIST, catalive
 from ..Config import Config
-from userbot._init_.py import client2 as client1, client3 as client2, bot as client3
+from userbot._init_.py import client2 as client1, client3 as client2, bot as client1
 
 PMPERMIT_PIC = Config.PMPERMIT_PIC or None
 if PMPERMIT_PIC is None:
